@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3: Creating paragraphs dynamically from data</title>
+		
+		<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+		/*	d3.csv("{{ url_for('static', filename='food.csv') }}", function(data) {
+				console.log(data);
+			});	
+
+			var dataset = [ 5, 10, 15, 20, 25 ];
+			
+			d3.select("body").selectAll("p")
+				.data(dataset)
+				.enter()
+				.append("p")
+				.text(function(d) { return d; });
+		*/
+		
+		d3.csv("{{ url_for('static', filename='crime.csv') }}",function(ArrObjects){
+			ArrObjects.forEach(function(d){
+				console.log(d.STATE+",	"+d.DISTRICT+",	"+d.Year+",	"+d.Rape+",	"+d.KidnappingandAbduction+",	"+d.DowryDeaths+",	"+d.Assaultonwomenwithintenttooutragehermodesty+",	"+d.InsulttomodestyofWomen+",	"+d.CrueltybyHusbandorhisRelatives+",	"+d.ImportationofGirls);
+				});
+			});
+		</script>
+	</body>
+</html>
